@@ -1,0 +1,246 @@
+:root {
+  --bg-body: #edf2f8;
+  --dark-text: #4b5260;
+  --light-text: #848c97;
+
+  --name-text: #535a62;
+  --date-text: #babdc6;
+
+  --bg-social-bar: #49556b;
+  --text-share: #79859b;
+  --bg-icon-share: #eef2f9;
+  --bg-icon-share-active: #6f8199;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-body);
+  display: grid;
+  place-items: center;
+  padding: 100px 25px;
+  font-family: 'Manrope', sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 800px;
+    grid-template-columns: 290px 1fr;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.header {
+  overflow: hidden;
+  height: 190px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 11px 20px 20px rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    height: 375px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
+  }
+}
+
+.header__image {
+  width: 100%;
+  position: relative;
+  top: -16px;
+}
+
+@media screen and (min-width: 768px) {
+  .header__image {
+    top: 0;
+    width: auto;
+    height: 375px;
+  }
+}
+
+.article {
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  box-shadow: 11px 20px 20px rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (min-width: 768px) {
+  .article {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    z-index: 10;
+    height: 375px;
+    width: 600px;
+    overflow: visible;
+  }
+}
+
+.article__title {
+  font-size: 15px;
+  color: var(--dark-text);
+  line-height: 1.6;
+  padding: 0 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .article__title {
+    padding: 20px 50px 0;
+    margin: 0;
+    font-size: 25px;
+  }
+}
+
+.article__text {
+  color: var(--light-text);
+  padding: 0 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .article__text {
+    padding: 20px 50px 30px;
+    margin: 0;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    padding-left: 40px;
+    height: 50px;
+  }
+}
+
+.footer__avatar {
+  border-radius: 50%;
+  max-width: 20%;
+  margin-right: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__avatar {
+    max-width: 10%;
+  }
+}
+
+.footer__info {
+  width: 175px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__info {
+    width: 825px;
+  }
+}
+
+.footer__name,
+.footer__date {
+  margin: 0;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__name,
+  .footer__date {
+    font-size: 17px;
+  }
+}
+
+.footer__name {
+  font-weight: 700;
+}
+
+.footer__date {
+  color: var(--light-text);
+}
+
+.share {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: var(--bg-icon-share);
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+@media screen and (min-width: 768px) {
+  .share {
+    left: -50px;
+  }
+}
+
+.share--active {
+  background-color: var(--bg-icon-share-active);
+}
+
+.share--active .share__icon {
+  filter: brightness(100);
+}
+
+.tooltip {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background-color: var(--bg-social-bar);
+  opacity: 0;
+  height: 64px;
+  padding: 0 30px;
+  box-shadow: 0 11px 20px rgba(0, 0, 0, 0.05);
+  transition: opacity 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+  .tooltip {
+    left: 400px;
+    width: 200px;
+    border-radius: 10px;
+    top: -100px;
+  }
+
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #49556b;
+    box-shadow: 0 11px 20px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.tooltip__text {
+  letter-spacing: 5px;
+  color: var(--light-text);
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.tooltip__icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.tooltip--show {
+  opacity: 1;
+}
